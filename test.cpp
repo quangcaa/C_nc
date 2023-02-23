@@ -2,14 +2,17 @@
 
 using namespace std ;
 
-int main()
-{
+
+
+int main(){
     int n ; cin >> n ;
-    long long res = 1 ;
-    for(int i=1 ; i<=n ; i++)
+    for(int i=0 ; i<n ; i++)
     {
-        res *= i ;
+        for(int j=n-i ; j>=1 ; j--)
+        {
+            cout << "*" ;
+        }
+        cout << endl ; 
     }
-    cout << res ;
     return 0 ;
 }
