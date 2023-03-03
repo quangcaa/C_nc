@@ -29,6 +29,24 @@ int nt2(int n)
     return 1 ;
 }
 
+int nt3(int n)
+{
+    int sum = 0 ;
+    while(n)
+    {
+        sum += n%10 ;
+        n/=10 ;
+    }
+    if(nt1(sum))
+    {
+        return 1 ;
+    }
+    else
+    {
+        return 0 ;
+    }
+}
+
 int main()
 {
     int a , b  ; cin >> a >> b ;
@@ -37,7 +55,7 @@ int main()
     {
         if(nt2(i))
         {
-            if(nt1(i))
+            if(nt3(i) && nt1(i))
             {
                 cnt++ ;
             }
