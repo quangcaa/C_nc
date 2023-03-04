@@ -23,7 +23,15 @@ int checkuoc(int n)
         if(n%i==0)
         {
             cnt++ ;
+            while(n%i==0)
+            {
+                n/=i ;
+            }
         }
+    }
+    if(n > 1)
+    {
+        cnt++ ;
     }
     if(cnt>=3)
     {
@@ -38,12 +46,18 @@ int checkuoc(int n)
 int main()
 {
     int a , b ; cin >> a >> b ;
+    int check = 0 ;
     for(int i=a ; i<=b ; i++)
     {
-        if(checkuoc(i) && checktn(i))
+        if(checktn(i) && checkuoc(i))
         {
+            check++ ;
             cout << i << " " ;
         }
+    }
+    if(!check)
+    {
+        cout << "-1" ;
     }
     return 0 ;
 }

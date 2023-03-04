@@ -1,37 +1,49 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
-using namespace std ;
+using namespace std;
 
-typedef long long ll ;
+typedef long long ll;
 
-ll sum(ll n)
+ll isPN(ll n)
 {
-    ll res = 1 ;
-    for(int i=2 ; i<=sqrt(n) ; i++)
+    if(n<1)
     {
-        if(n%i==0)
+        return 0 ;
+    }
+    ll res = 1;
+    for (ll i = 2; i <= sqrt(n); i++)
+    {
+        if (n % i == 0)
         {
-            res += i ;
-            if(i != n/i)
+            res += i;
+            if (i != n / i)
             {
-                res += n/i ;
+                res += n / i;
             }
         }
     }
-    return res ;
+    if (res == n && n != 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 int main()
 {
-    ll n ; cin >> n ;
-    if(n == sum(n))
+    ll n;
+    cin >> n;
+    if (isPN(n))
     {
-        cout << "YES" ;
+        cout << "YES";
     }
     else
     {
-        cout << "NO" ;
+        cout << "NO";
     }
-    return 0 ;
+    return 0;
 }

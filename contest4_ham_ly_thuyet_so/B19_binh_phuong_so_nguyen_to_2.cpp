@@ -15,7 +15,7 @@ bool check(int n)
                 cnt++ ;
                 n/=i ;
             }
-            if(!cnt==2)
+            if(cnt<2)
             {
                 return false ;
             }
