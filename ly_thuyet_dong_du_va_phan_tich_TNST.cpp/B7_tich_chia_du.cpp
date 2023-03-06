@@ -7,15 +7,12 @@ const int MOD = 1e9 + 7 ;
 int main()
 {
     int n ; cin >> n ;
-    long long x ;
-    long long sum = 0 ;
-    
+    long long res = 1 ;
     for(int i=0 ; i<n ; i++)
     {
-        cin >> x ;
-        sum = ((sum % MOD ) + (x % MOD)) % MOD ;
+        int x ; cin >> x ;
+        res =( (res % MOD) * (x % MOD) ) % MOD ;
     }
-
-    cout << sum ;
+    cout << res ;
     return 0 ;
 }

@@ -5,45 +5,30 @@ using namespace std;
 
 typedef long long ll;
 
-ll isPN(ll n)
+int pN(ll n)
 {
-    if(n<1)
+    for(int i=2 ; i<=31 ; i++)
     {
-        return 0 ;
-    }
-    ll res = 1;
-    for (ll i = 2; i <= sqrt(n); i++)
-    {
-        if (n % i == 0)
+        long long sum = pow(2,i-1) * (pow(2,i) - 1) ;
+        if(n == sum)
         {
-            res += i;
-            if (i != n / i)
-            {
-                res += n / i;
-            }
+            return 1 ;
         }
     }
-    if (res == n && n != 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return 0 ;
 }
 
 int main()
 {
     ll n;
     cin >> n;
-    if (isPN(n))
+    if(pN(n))
     {
-        cout << "YES";
+        cout << "YES" ;
     }
     else
     {
-        cout << "NO";
+        cout << "NO" ;
     }
     return 0;
 }
