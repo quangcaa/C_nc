@@ -49,10 +49,7 @@ void c2(int n)
                 n /= i;
             }
         }
-        if(cnt > 0)
-        {
-            cout << "(" << i << ", " << cnt << ") ";
-        }
+        cout << "(" << i << ", " << cnt << ") ";
     }
     if (n > 1)
     {
