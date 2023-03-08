@@ -6,21 +6,12 @@ using namespace std ;
 int main()
 {
     long long n , m , k ; cin >> n >> m >> k ;
-    long long MOD = 1 ;
-    for(int i=1 ; i<=k ; i++)
+    long long lt = 1 ;
+    long long x = pow(10,k) ;
+    for(int i=1 ; i<=m ; i++)
     {
-        MOD *= 10 ;
+        lt = ((lt % x) * (n % x)) % x ;
     }
-    long long res = 1 ;
-    while (m > 0)
-    {
-        if (m & 1) 
-        {
-            res = (res * n) % MOD;
-        }
-        n = (n * n) % MOD;
-        m >>= 1;
-    }
-    cout << res ;
+    cout << lt ;
     return 0 ;
 }
