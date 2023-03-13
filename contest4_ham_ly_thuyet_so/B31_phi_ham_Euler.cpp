@@ -1,46 +1,35 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
 typedef long long ll;
 
-int ucln(ll a, ll b)
+ll phiEuler(ll n)
 {
-    if (b == 0)
+    ll ans = n ;
+    for(int i=2 ; i<=sqrt(n) ; i++)
     {
-        return a;
+        if(n%i==0)
+        {
+            ans -= ans/i ;
+            while(n%i==0)
+            {
+                n /= i ;
+            }
+        }
     }
-    else
+    if(n != 1)
     {
-        return ucln(b, a % b);
+        ans -= ans/n ;
     }
+    return ans ;
 }
 
 int main()
 {
     ll n;
     cin >> n;
-    ll cnt = 1;
-    if (n % 2 == 0)
-    {
-        for (int i = 3; i <= n; i += 2)
-        {
-            if (ucln(n, i) == 1)
-            {
-                cnt++;
-            }
-        }
-    }
-    else
-    {
-        for (ll i = 2 ; i <= n; i++)
-        {
-            if (ucln(n, i) == 1)
-            {
-                cnt++;
-            }
-        }
-    }
-    cout << cnt;
+    cout << phiEuler(n) ;
     return 0;
 }

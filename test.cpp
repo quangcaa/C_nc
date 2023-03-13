@@ -1,21 +1,25 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std ;
-
-const int MOD = 1e9 + 7 ;
 
 int main()
 {
     int n ; cin >> n ;
-    long long x ;
-    long long sum = 0 ;
-    
-    for(int i=0 ; i<n ; i++)
+
+    int can = sqrt(n) ;
+    if(can*can == n)
     {
-        cin >> x ;
-        sum = ((sum % MOD ) + (x % MOD)) % MOD ;
+        cout << 4*can ;
+    }
+    else
+    {
+        while(n%can != 0)
+        {
+            can-- ;
+        }
+        cout << 2*(can+n/can) ;
     }
 
-    cout << sum ;
     return 0 ;
 }
